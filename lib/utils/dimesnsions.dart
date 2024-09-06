@@ -39,4 +39,8 @@ class Dimensions {
   static double fontSize10 = screenHeight / 93.2;
   static double fontSize15 = screenHeight / 62.13;
   static double fontSize20 = screenHeight / 46.6;
+
+  //Single product screen
+
+  static double productSize = screenHeight / 2.64;
 }

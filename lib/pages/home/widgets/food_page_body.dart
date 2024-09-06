@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:woocomerece/single_product/single_product_screen.dart';
 import 'package:woocomerece/utils/colors.dart';
 import 'package:woocomerece/utils/dimesnsions.dart';
 import 'package:woocomerece/widgets/custom_text.dart';
@@ -95,7 +96,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 padding: const EdgeInsets.only(right: 5.0),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-
                 ),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,107 +193,117 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         ..setTranslationRaw(0, _height * (1 - scaleFactor) / 2, 0);
     }
 
-    return Transform(
-      transform: matrix,
-      child: Stack(
-        children: [
-          Container(
-            height: Dimensions.pageViewContainer,
-            margin: const EdgeInsets.only(right: 5, left: 5),
-            decoration: BoxDecoration(
-                color:
-                    index.isEven ? AppColors.mainColor : AppColors.yellowColor,
-                borderRadius: BorderRadius.circular(30),
-                image: const DecorationImage(
-                  fit: BoxFit.contain,
-                  image: AssetImage(
-                    "assets/images/img_1.png",
-                  ),
-                )),
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const SingleProductScreen(),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: Dimensions.pageTextContainer,
-              margin: EdgeInsets.only(
-                right: Dimensions.marginRight30,
-                left: Dimensions.marginLeft30,
-                bottom: Dimensions.marginBottom30,
-              ),
+        );
+      },
+      child: Transform(
+        transform: matrix,
+        child: Stack(
+          children: [
+            Container(
+              height: Dimensions.pageViewContainer,
+              margin: const EdgeInsets.only(right: 5, left: 5),
               decoration: BoxDecoration(
-                color: AppColors.whiteColor,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0xffe8e8e8),
-                    offset: Offset(0, 5),
-                  ),
-                  BoxShadow(
-                    color: Color(0xffe8e8e8),
-                    offset: Offset(-5, 0),
-                  ),
-                  BoxShadow(
-                    color: Color(0xffe8e8e8),
-                    offset: Offset(5, 0),
-                  )
-                ],
-              ),
+                  color: index.isEven
+                      ? AppColors.mainColor
+                      : AppColors.yellowColor,
+                  borderRadius: BorderRadius.circular(30),
+                  image: const DecorationImage(
+                    fit: BoxFit.contain,
+                    image: AssetImage(
+                      "assets/images/img_1.png",
+                    ),
+                  )),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Container(
-                padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const BigText(
-                      title: "Chinese Salad",
+                height: Dimensions.pageTextContainer,
+                margin: EdgeInsets.only(
+                  right: Dimensions.marginRight30,
+                  left: Dimensions.marginLeft30,
+                  bottom: Dimensions.marginBottom30,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.whiteColor,
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0xffe8e8e8),
+                      offset: Offset(0, 5),
                     ),
-                    SizedBox(height: Dimensions.sizeHeight10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Wrap(
-                          children: List.generate(
-                            5,
-                            (index) {
-                              return const Icon(Icons.star,
-                                  color: AppColors.mainColor, size: 20);
-                            },
-                          ),
-                        ),
-                        const SmallText(title: "4.5"),
-                        const SmallText(title: "1250"),
-                        const SmallText(title: "Comments"),
-                      ],
+                    BoxShadow(
+                      color: Color(0xffe8e8e8),
+                      offset: Offset(-5, 0),
                     ),
-                    SizedBox(height: Dimensions.sizeHeight10),
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconTextWidget(
-                          text: "Normal",
-                          color: AppColors.textColor,
-                          icon: Icons.circle_sharp,
-                          iconColor: AppColors.iconColor1,
-                        ),
-                        IconTextWidget(
-                          text: "10km",
-                          color: AppColors.textColor,
-                          icon: Icons.location_on,
-                          iconColor: AppColors.mainColor,
-                        ),
-                        IconTextWidget(
-                          text: "Time",
-                          color: AppColors.textColor,
-                          icon: Icons.access_time_rounded,
-                          iconColor: AppColors.yellowColor,
-                        ),
-                      ],
+                    BoxShadow(
+                      color: Color(0xffe8e8e8),
+                      offset: Offset(5, 0),
                     )
                   ],
                 ),
+                child: Container(
+                  padding: const EdgeInsets.only(top: 10, left: 15, right: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const BigText(
+                        title: "Chinese Salad",
+                      ),
+                      SizedBox(height: Dimensions.sizeHeight10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Wrap(
+                            children: List.generate(
+                              5,
+                              (index) {
+                                return const Icon(Icons.star,
+                                    color: AppColors.mainColor, size: 20);
+                              },
+                            ),
+                          ),
+                          const SmallText(title: "4.5"),
+                          const SmallText(title: "1250"),
+                          const SmallText(title: "Comments"),
+                        ],
+                      ),
+                      SizedBox(height: Dimensions.sizeHeight10),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconTextWidget(
+                            text: "Normal",
+                            color: AppColors.textColor,
+                            icon: Icons.circle_sharp,
+                            iconColor: AppColors.iconColor1,
+                          ),
+                          IconTextWidget(
+                            text: "10km",
+                            color: AppColors.textColor,
+                            icon: Icons.location_on,
+                            iconColor: AppColors.mainColor,
+                          ),
+                          IconTextWidget(
+                            text: "Time",
+                            color: AppColors.textColor,
+                            icon: Icons.access_time_rounded,
+                            iconColor: AppColors.yellowColor,
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
