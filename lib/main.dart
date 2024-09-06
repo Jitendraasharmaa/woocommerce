@@ -1,8 +1,8 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:woocomerece/pages/home/home_screen.dart';
 import 'package:woocomerece/utils/colors.dart';
-import 'package:woocomerece/screens/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());

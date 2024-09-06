@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:woocomerece/pages/home/widgets/food_page_body.dart';
 import 'package:woocomerece/utils/colors.dart';
-import 'package:woocomerece/screens/home/widgets/food_page_body.dart';
 import 'package:woocomerece/widgets/small_text.dart';
 
 import '../../widgets/custom_text.dart';
