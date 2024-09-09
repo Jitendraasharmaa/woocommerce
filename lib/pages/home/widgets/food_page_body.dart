@@ -1,11 +1,13 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
-import 'package:woocomerece/single_product/single_product_screen.dart';
 import 'package:woocomerece/utils/colors.dart';
 import 'package:woocomerece/utils/dimensions.dart';
 import 'package:woocomerece/widgets/custom_text.dart';
 import 'package:woocomerece/widgets/icon_text_widget.dart';
 import 'package:woocomerece/widgets/small_text.dart';
+
+import '../../recommended_product_details/recommended_product_details.dart';
+import '../../single_product/single_product_screen.dart';
 
 class FoodPageBody extends StatefulWidget {
   const FoodPageBody({super.key});
@@ -92,70 +94,79 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             shrinkWrap: true,
             itemCount: 5,
             itemBuilder: (context, index) {
-              return Container(
-                padding: const EdgeInsets.only(right: 5.0),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Container(
-                        width: 120,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: AppColors.yellowColor,
-                          borderRadius: BorderRadius.circular(
-                            Dimensions.borderRadius10,
-                          ),
-                          image: const DecorationImage(
-                            image: AssetImage("assets/images/img_1.png"),
-                            fit: BoxFit.contain,
+              return InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const RecommendedProductDetails(),
+                    ),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.only(right: 5.0),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: AppColors.yellowColor,
+                            borderRadius: BorderRadius.circular(
+                              Dimensions.borderRadius10,
+                            ),
+                            image: const DecorationImage(
+                              image: AssetImage("assets/images/img_1.png"),
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10, left: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const BigText(
-                            title: "chinese Salad",
-                          ),
-                          const SizedBox(height: 5.0),
-                          const SmallText(
-                            title: "With Chinese Characteristics",
-                          ),
-                          SizedBox(height: Dimensions.sizeWidth10),
-                          const Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              IconTextWidget(
-                                icon: Icons.circle_sharp,
-                                iconColor: AppColors.iconColor1,
-                                text: "Normal",
-                                color: AppColors.textColor,
-                              ),
-                              IconTextWidget(
-                                icon: Icons.location_on,
-                                iconColor: AppColors.mainColor,
-                                text: "20km",
-                                color: AppColors.textColor,
-                              ),
-                              IconTextWidget(
-                                icon: Icons.access_time_rounded,
-                                iconColor: AppColors.yellowColor,
-                                text: "32min",
-                                color: AppColors.textColor,
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10, left: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const BigText(
+                              title: "chinese Salad",
+                            ),
+                            const SizedBox(height: 5.0),
+                            const SmallText(
+                              title: "With Chinese Characteristics",
+                            ),
+                            SizedBox(height: Dimensions.sizeWidth10),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconTextWidget(
+                                  icon: Icons.circle_sharp,
+                                  iconColor: AppColors.iconColor1,
+                                  text: "Normal",
+                                  color: AppColors.textColor,
+                                ),
+                                IconTextWidget(
+                                  icon: Icons.location_on,
+                                  iconColor: AppColors.mainColor,
+                                  text: "20km",
+                                  color: AppColors.textColor,
+                                ),
+                                IconTextWidget(
+                                  icon: Icons.access_time_rounded,
+                                  iconColor: AppColors.yellowColor,
+                                  text: "32min",
+                                  color: AppColors.textColor,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               );
             },

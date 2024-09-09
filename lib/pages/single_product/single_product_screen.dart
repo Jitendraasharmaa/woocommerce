@@ -31,6 +31,7 @@ class SingleProductScreen extends StatelessWidget {
               ),
             ),
           ),
+          //Icons section
           Positioned(
             top: 45,
             left: 20,
