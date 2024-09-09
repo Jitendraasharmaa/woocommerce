@@ -19,7 +19,7 @@ class SmallText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title.toString(),
-      overflow: textOverflow,
+      // overflow: textOverflow,
       style: TextStyle(
           color: color,
           fontSize: size,

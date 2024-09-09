@@ -2,7 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:woocomerece/single_product/single_product_screen.dart';
 import 'package:woocomerece/utils/colors.dart';
-import 'package:woocomerece/utils/dimesnsions.dart';
+import 'package:woocomerece/utils/dimensions.dart';
 import 'package:woocomerece/widgets/custom_text.dart';
 import 'package:woocomerece/widgets/icon_text_widget.dart';
 import 'package:woocomerece/widgets/small_text.dart';

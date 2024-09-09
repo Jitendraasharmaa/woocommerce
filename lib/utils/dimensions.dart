@@ -30,6 +30,12 @@ class Dimensions {
   static double marginBottom30 = screenWidth / 14.33;
 
   //dynamic padding
+  static double paddingLeft20 = screenWidth / 46.6;
+  static double paddingRight20 = screenWidth / 46.6;
+  static double paddingTop20 = screenWidth / 46.6;
+  static double paddingBottom20 = screenWidth / 46.6;
+
+  //dynamic padding
   static double paddingLeft30 = screenWidth / 14.33;
   static double paddingRight30 = screenWidth / 14.33;
   static double paddingTop30 = screenWidth / 14.33;
@@ -41,6 +47,5 @@ class Dimensions {
   static double fontSize20 = screenHeight / 46.6;
 
   //Single product screen
-
   static double productSize = screenHeight / 2.64;
 }
