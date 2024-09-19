@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:woocomerece/widgets/custom_text.dart';
 import 'package:woocomerece/widgets/expandable_text-widget/expandable_text_widget.dart';
 
+import '../../utils/app_constants.dart';
 import '../../utils/colors.dart';
 import '../../utils/dimensions.dart';
 import '../../widgets/app_icon.dart';
 
 class RecommendedProductDetails extends StatefulWidget {
-  const RecommendedProductDetails({super.key});
+  final String? imgUrl;
+  final String? name;
+  final int? price;
+  final String? description;
+
+  const RecommendedProductDetails(
+      {super.key, this.imgUrl, this.name, this.price, this.description});
 
   @override
   State<RecommendedProductDetails> createState() =>
@@ -54,16 +61,14 @@ class _RecommendedProductDetailsState extends State<RecommendedProductDetails> {
                   ),
                   color: Colors.white,
                 ),
-                child: const BigText(
-                  title: "Chinese Salad",
+                child: BigText(
+                  title: widget.name,
                 ),
               ),
             ),
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                "assets/images/img_1.png",
-                width: double.maxFinite,
-                fit: BoxFit.cover,
+              background: Image.network(
+                "${AppConstants.baseUrl}/uploads/${widget.imgUrl}",
               ),
             ),
           ),
@@ -72,9 +77,9 @@ class _RecommendedProductDetailsState extends State<RecommendedProductDetails> {
               color: AppColors.whiteColor,
               padding:
                   EdgeInsets.symmetric(horizontal: Dimensions.paddingLeft20),
-              child: const ExpandableTextWidget(
-                  text:
-                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."),
+              child: ExpandableTextWidget(
+                text: widget.description.toString(),
+              ),
             ),
           )
         ],
@@ -94,7 +99,7 @@ class _RecommendedProductDetailsState extends State<RecommendedProductDetails> {
                   backgroundColor: AppColors.mainColor,
                 ),
                 SizedBox(width: Dimensions.sizeHeight20),
-                const BigText(title: "\$100.00/-"),
+                 BigText(title: "Rs.${widget.price}"),
                 SizedBox(width: Dimensions.sizeHeight20),
                 const AppIconWidget(
                   icon: Icons.add,

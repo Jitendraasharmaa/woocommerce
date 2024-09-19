@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:woocomerece/utils/app_constants.dart';
 
 class APIClient extends GetConnect implements GetxService {
   late String token;
@@ -8,7 +9,7 @@ class APIClient extends GetConnect implements GetxService {
   APIClient({required this.appBaseUrl}) {
     baseUrl = appBaseUrl;
     timeout = const Duration(seconds: 30);
-    token="";
+    token= AppConstants.token;
     _mainHeader = {
       "content-type": "application/json; charset=utf-8",
       "Authorization": "Bearer $token",

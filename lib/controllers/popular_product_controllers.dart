@@ -11,12 +11,17 @@ class PopularProductControllers extends GetxController {
 
   List<dynamic> get popularProductList => _popularProductList;
 
+  bool _loading = false;
+
+  bool get loading => _loading;
+
   Future<void> getPopularProduct() async {
     Response response = await popularProductRepo.getPopularProductList();
     if (response.statusCode == 200) {
       _popularProductList =[];
       _popularProductList.addAll(Product.fromJson(response.body).products);
-      print(_popularProductList);
+      _loading = true;
+      // print(_popularProductList);
       update();
     }
   }
