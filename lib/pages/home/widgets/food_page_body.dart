@@ -57,8 +57,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     itemCount: popularProducts.popularProductList.length,
                     // Number of items to display
                     itemBuilder: (context, index) {
-                      return _buildPageItem(index,
-                          popularProducts.popularProductList[index]);
+                      return _buildPageItem(
+                          index, popularProducts.popularProductList[index]);
                     },
                   ),
                 )
@@ -256,7 +256,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (context) =>  SingleProductScreen(
+            builder: (context) => SingleProductScreen(
               img: popularProducts.img,
               description: popularProducts.description,
               name: popularProducts.name,
